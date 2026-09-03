@@ -1,0 +1,12 @@
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - find . -maxdepth 1 -type f \( -name '*.html' -o -name '*.xml' -o -name '*.txt' -o -name '*.ico' \) -exec cp {} public/ \;
+    - cp -R assets css js public/
+  artifacts:
+    paths:
+      - public
+  rules:
+    - if: '$CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
+

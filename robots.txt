@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://don-charlie-pc.github.io/sitemap.xml
+
