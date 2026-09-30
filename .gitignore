@@ -4,4 +4,9 @@ Thumbs.db
 .vscode/
 node_modules/
 public/
-
+.env
+.env.*
+!.env.example
+test-results/
+supabase/.temp/
+supabase/.branches/

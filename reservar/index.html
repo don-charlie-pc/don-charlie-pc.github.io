@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserva tu historia · Castellanos Fotografía</title>
+  <meta name="description" content="Consulta fechas para sesiones y celebraciones en Guadalajara. Solicitudes sujetas a confirmación de Castellanos Fotografía.">
+  <meta name="theme-color" content="#f2ede3"><meta name="referrer" content="strict-origin-when-cross-origin">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../css/styles.css"><link rel="stylesheet" href="../css/booking.css">
+  <script type="module" src="../assets/js/booking-public.js"></script>
+</head>
+<body class="booking-page">
+  <a class="skip-link" href="#main">Ir al contenido</a>
+  <header class="booking-header"><a class="booking-brand" href="../">Castellanos<span>FOTOGRAFÍA</span></a><a class="text-link" href="../#portfolio">Ver portafolio <span aria-hidden="true">↗</span></a></header>
+  <main id="main" class="booking-layout">
+    <aside class="booking-story">
+      <p class="eyebrow">Guadalajara · Jalisco</p><h1>Hay momentos<br>que merecen<br><em>quedarse.</em></h1>
+      <p>Un retrato, un sí, una celebración. Cuéntanos qué tienes en mente y encontremos la fecha para fotografiarlo.</p>
+      <figure><img src="../assets/images/portfolio/portfolio-07.jpg" alt="Dos personas tomadas de la mano en la luz del sol" width="1024" height="1536"><figcaption>Castellanos Fotografía · Historias cercanas</figcaption></figure>
+      <p class="fine-print">Guadalajara y Zona Metropolitana.<br>Fotografía para personas y sus historias.</p>
+    </aside>
+    <section class="booking-workspace" aria-labelledby="booking-title">
+      <p class="eyebrow">Una fecha para tu historia</p><h2 id="booking-title">Empecemos <em>por aquí.</em></h2>
+      <p class="booking-notice">Tu fecha se confirma después de nuestra revisión. Enviar este formulario es una solicitud, todavía no una cita definitiva.</p>
+      <p id="booking-status" class="notice" role="status" aria-live="polite">Consultando disponibilidad…</p>
+      <noscript><p>Activa JavaScript para consultar horarios o <a href="https://www.instagram.com/castellanos.foto/">escríbenos por Instagram</a>.</p></noscript>
+      <form id="booking-form">
+        <fieldset><legend><span class="step-number">01</span> ¿Qué vamos a fotografiar?</legend><div id="services" class="service-options"></div></fieldset>
+        <fieldset id="slot-section" hidden><legend><span class="step-number">02</span> Elige un momento</legend><p class="fine-print">Todos los horarios corresponden a Guadalajara (America/Mexico_City).</p><div id="slots" class="slot-options"></div><p id="slot-status" role="status" aria-live="polite"></p></fieldset>
+        <div id="quote-section" class="notice" hidden><h3>Cada boda tiene su propia historia.</h3><p>Preparamos una propuesta de fotografía a tu medida. Esta consulta no aparta ni promete un horario.</p><label for="preferred-date">Fecha que tienes en mente (opcional)</label><input id="preferred-date" name="preferred_date" type="date"></div>
+        <fieldset id="customer-fields" disabled><legend><span class="step-number">03</span> Cuéntanos un poco de ti</legend>
+          <div class="field"><label for="customer-name">Nombre completo</label><input id="customer-name" name="customer_name" autocomplete="name" minlength="2" maxlength="120" required></div>
+          <div class="form-row"><div class="field"><label for="customer-phone">WhatsApp</label><input id="customer-phone" name="customer_phone" type="tel" autocomplete="tel" maxlength="30" pattern="\+?[0-9 ()\-]{8,30}" placeholder="Incluye la clave de tu país" required></div><div class="field"><label for="customer-email">Correo electrónico</label><input id="customer-email" name="customer_email" type="email" autocomplete="email" maxlength="254" required></div></div>
+          <div class="form-row"><div class="field"><label for="municipality">Municipio o zona</label><select id="municipality" name="municipality" required><option value="">Selecciona</option><option>Guadalajara</option><option>Zapopan</option><option>Tlaquepaque</option><option>Tonalá</option><option>Tlajomulco</option><option>Otro</option></select></div><div class="field"><label for="location-type">Tipo de locación</label><select id="location-type" name="location_type" required><option value="por_definir">Por definir</option><option value="estudio">Estudio</option><option value="exterior">Exterior</option><option value="domicilio">Domicilio</option></select></div></div>
+          <div class="field"><label for="location-detail">Zona o detalle de la locación (opcional)</label><input id="location-detail" name="location_detail" maxlength="300"></div>
+          <div class="form-row"><div class="field"><label for="participants">Personas o invitados aproximados (si aplica)</label><input id="participants" name="participant_count" type="number" min="1" max="10000" inputmode="numeric"></div><div class="field"><label for="contact-method">Prefiero que me contacten por</label><select id="contact-method" name="preferred_contact_method"><option value="whatsapp">WhatsApp</option><option value="email">Correo electrónico</option></select></div></div>
+          <div class="field"><label for="customer-notes">Notas o necesidades especiales (opcional)</label><textarea id="customer-notes" name="customer_notes" rows="4" maxlength="2000" placeholder="¿Qué haría este momento especial para ti?"></textarea></div>
+          <div class="honeypot" aria-hidden="true"><label for="website">Sitio web (deja vacío)</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+          <label class="consent"><input type="checkbox" name="privacy_accepted" required><span>He leído y acepto el <a href="privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
+          <label class="consent"><input type="checkbox" name="terms_accepted" required><span>Acepto los <a href="privacidad.html#terminos" target="_blank" rel="noopener">términos de solicitud</a> y entiendo que mi fecha requiere confirmación.</span></label>
+          <div id="turnstile"></div><button class="button button--accent" id="submit-booking" type="submit">Enviar solicitud <span aria-hidden="true">↗</span></button>
+          <p class="fine-print">No necesitas una cuenta. No se realizan cobros en este formulario.</p>
+        </fieldset>
+      </form>
+      <section id="booking-success" class="success-panel" tabindex="-1" hidden aria-labelledby="success-title"><p class="eyebrow">Gracias por compartir tu historia</p><h2 id="success-title">Ya dimos<br><em>el primer paso.</em></h2><p id="success-message"></p><p>Tu folio es <strong id="public-reference"></strong></p><p id="hold-message"></p><p>Guarda este folio. El equipo dará seguimiento manualmente por WhatsApp o correo.</p><a class="text-link" href="../">Volver al portafolio ↗</a></section>
+    </section>
+  </main>
+  <footer class="booking-footer"><span>Castellanos Fotografía</span><a href="https://www.instagram.com/castellanos.foto/" target="_blank" rel="noopener noreferrer">Conversemos en Instagram ↗</a><a href="privacidad.html">Privacidad y términos</a></footer>
+</body>
+</html>

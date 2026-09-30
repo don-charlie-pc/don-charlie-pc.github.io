@@ -1,16 +1,29 @@
 # Don Charlie Photography
 
-A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. It has no framework, database, CMS, or required build step and is ready for GitHub Pages or GitLab Pages.
+A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. The portfolio remains static. Castellanos Fotografía booking pages add a separate Supabase backend without introducing a frontend framework.
 
 ## Local preview
 
 From the repository root, start any static file server:
 
 ```bash
-python3 -m http.server 8000
+node scripts/build.mjs
+python3 -m http.server 8000 --directory public
 ```
 
-Then open <http://localhost:8000>. Opening `index.html` directly also works, but a local server more closely matches Pages hosting.
+Then open <http://localhost:8000>. The booking page is `/reservar/`; the private admin entry is `/admin/`. Serve `public/`, not the repository root, so private configuration files cannot be served. Node 24+ is sufficient for the build; it needs no npm install or credentials.
+
+## Castellanos Fotografía reservations
+
+The public page requests a temporary hold; only authorized admin confirmation creates a private Google Calendar event. Wedding quotes do not reserve a slot. Setup is intentionally disabled until Supabase, OAuth, Turnstile and the editable privacy/terms notice are configured.
+
+- [Implementation plan](docs/booking-implementation-plan.md)
+- [Setup and secrets](docs/BOOKING_SETUP.md)
+- [Daily operations (Spanish)](docs/OPERACION_RESERVAS.md)
+- [Deployment and commercial hosting options](docs/DEPLOYMENT_BOOKING.md)
+- [Validation results and limitations](docs/BOOKING_VALIDATION.md)
+
+Run `npm test` for dependency-free security and Calendar mocks, `npm run test:browser` for installed-Chrome UI checks, and `npm run build` for the static artifact. After `npm install`, run `npm run lint` and `npm run test:db`. Database concurrency against a disposable local Postgres instance is covered by `npm run test:concurrency`; see the setup guide.
 
 ## Edit business information
 
@@ -27,7 +40,7 @@ Images below the fold are lazy-loaded automatically. This starter includes AI-ge
 
 ## GitHub Pages deployment
 
-The workflow at `.github/workflows/pages.yml` deploys the repository root whenever `main` is updated.
+The workflow at `.github/workflows/pages.yml` packages only public files into `public/` and deploys that artifact whenever `main` is updated. It does not publish backend code, docs, tests or `.env` files.
 
 1. Push this repository to GitHub with `main` as the default branch.
 2. Open **Settings → Pages**.

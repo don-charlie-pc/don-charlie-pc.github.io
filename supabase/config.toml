@@ -1,0 +1,22 @@
+project_id = "castellanos-booking"
+
+# JWT validation is performed using Auth.getUser in requireAdmin, supporting new signing keys.
+# Public endpoints and OAuth callback need no browser JWT. Every privileged route calls requireAdmin.
+[functions.list-public-slots]
+verify_jwt = false
+[functions.create-reservation]
+verify_jwt = false
+[functions.admin-availability]
+verify_jwt = false
+[functions.admin-reservations]
+verify_jwt = false
+[functions.confirm-reservation]
+verify_jwt = false
+[functions.decline-or-cancel-reservation]
+verify_jwt = false
+[functions.retry-calendar-sync]
+verify_jwt = false
+[functions.calendar-connect-start]
+verify_jwt = false
+[functions.google-calendar-oauth-callback]
+verify_jwt = false
