@@ -10,7 +10,7 @@ try {
 await mkdir(output, { recursive: true });
 await writeFile(resolve(output, '.static-build'), 'castellanos-static\n');
 const extensions = new Set(['.html', '.css', '.js', '.jpg', '.jpeg', '.webp', '.png', '.svg', '.ico', '.woff', '.woff2']);
-for (const folder of ['assets', 'css', 'js', 'reservar', 'admin']) {
+for (const folder of ['assets', 'css', 'js']) {
   await cp(resolve(root, folder), resolve(output, folder), {
     recursive: true, filter: async source => {
       const { lstat } = await import('node:fs/promises'); const info = await lstat(source);
@@ -20,4 +20,4 @@ for (const folder of ['assets', 'css', 'js', 'reservar', 'admin']) {
   });
 }
 for (const file of ['index.html', '404.html', 'robots.txt', 'sitemap.xml']) await cp(resolve(root, file), resolve(output, file));
-console.log('Static site built in public/: portfolio, booking and admin. Backend, docs, tests and secrets excluded.');
+console.log('Static portfolio built in public/.');

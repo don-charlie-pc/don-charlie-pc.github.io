@@ -1,18 +1,9 @@
 {
-  "name": "castellanos-fotografia-booking",
+  "name": "castellanos-photography-portfolio",
   "private": true,
   "type": "module",
   "scripts": {
     "build": "node scripts/build.mjs",
-    "lint": "tsc --noEmit && node scripts/check.mjs",
-    "test": "node --experimental-transform-types --test tests/*.test.mjs",
-    "test:db": "node --test tests/database.mjs",
-    "test:concurrency": "node --test tests/postgres-concurrency.mjs",
-    "test:browser": "node tests/browser.mjs",
     "preview": "python3 -m http.server 8000 --directory public"
-  },
-  "devDependencies": {
-    "@electric-sql/pglite": "0.3.14",
-    "typescript": "5.9.3"
   }
 }

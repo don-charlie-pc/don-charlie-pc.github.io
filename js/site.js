@@ -9,9 +9,9 @@
 
   const escapeHtml = (value) => String(value).replace(/[&<>'"]/g, (character) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", "'": "&#39;", '"': "&quot;" })[character]);
   const formatText = (template, values = {}) => template.replace(/\{(\w+)\}/g, (_, key) => values[key] ?? "");
-  let currentLanguage = "en";
+  let currentLanguage = "es";
   try {
-    const savedLanguage = window.localStorage.getItem("castellanos-language");
+    const savedLanguage = window.localStorage.getItem("castellanos-language-v2");
     if (savedLanguage && locales[savedLanguage]) currentLanguage = savedLanguage;
   } catch { /* Storage can be unavailable in private browsing. */ }
   let currentLocale = locales[currentLanguage];
@@ -29,10 +29,7 @@
       element.innerHTML = formatText(template, { name: `<span data-config="photographerName">${name}</span>` });
     });
     document.querySelectorAll('[data-link="instagram"]').forEach((link) => { link.href = config.instagramUrl; });
-    document.querySelectorAll('[data-link="email"]').forEach((link) => {
-      link.href = `https://ig.me/m/castellanos.foto`;
-      if (link.textContent.includes("@")) link.textContent = config.email;
-    });
+    document.querySelectorAll('[data-link="instagram-message"]').forEach((link) => { link.href = config.instagramMessageUrl; });
     document.title = currentLocale.pageTitle;
     document.getElementById("current-year").textContent = new Date().getFullYear();
   };
@@ -74,22 +71,12 @@
     if (ogImageAlt) ogImageAlt.content = currentLocale.socialImageAlt;
     if (twitterTitle) twitterTitle.content = currentLocale.pageTitle;
     if (twitterDescription) twitterDescription.content = currentLocale.metaDescription;
-    document.querySelectorAll('.field [aria-invalid="true"]').forEach((field) => {
-      const error = document.getElementById(`${field.id}-error`);
-      if (error) error.textContent = field.validity.typeMismatch ? currentLocale.text.invalidEmail : currentLocale.text.requiredField;
-    });
-    const formStatus = document.getElementById("form-status");
-    if (formStatus?.textContent) {
-      const statusKey = Object.keys(locales).flatMap((language) => Object.keys(locales[language].text).filter((key) => ["checkFields", "openingEmail"].includes(key) && locales[language].text[key] === formStatus.textContent))[0];
-      if (statusKey) formStatus.textContent = currentLocale.text[statusKey];
-    }
     const schema = document.querySelector('script[type="application/ld+json"]');
     if (schema) {
       try {
         const structuredData = JSON.parse(schema.textContent);
         structuredData.name = currentLocale.businessName;
         structuredData.description = currentLocale.metaDescription;
-        structuredData.email = `https://ig.me/m/castellanos.foto`;
         structuredData.areaServed = currentLocale.areaServed;
         structuredData.sameAs = [config.instagramUrl];
         schema.textContent = JSON.stringify(structuredData);
@@ -190,7 +177,7 @@
   const setupLanguageToggle = () => {
     document.getElementById("language-toggle").addEventListener("click", () => {
       currentLanguage = currentLanguage === "en" ? "es" : "en";
-      try { window.localStorage.setItem("castellanos-language", currentLanguage); } catch { /* The choice still applies for this visit. */ }
+      try { window.localStorage.setItem("castellanos-language-v2", currentLanguage); } catch { /* The choice still applies for this visit. */ }
       applyLocale();
       renderPortfolio(activeCategory);
       renderServices();
@@ -254,40 +241,6 @@
     }, { passive: true });
   };
 
-  const setupContactForm = () => {
-    const form = document.getElementById("contact-form");
-    const status = document.getElementById("form-status");
-    const fields = [...form.querySelectorAll("input, select, textarea")];
-    const validate = (field) => {
-      const error = document.getElementById(`${field.id}-error`);
-      let message = "";
-      if (field.validity.valueMissing) message = currentLocale.text.requiredField;
-      if (field.validity.typeMismatch) message = currentLocale.text.invalidEmail;
-      error.textContent = message;
-      field.setAttribute("aria-invalid", String(Boolean(message)));
-      return !message;
-    };
-    fields.forEach((field) => {
-      field.addEventListener("blur", () => validate(field));
-      field.addEventListener("input", () => { if (field.getAttribute("aria-invalid") === "true") validate(field); });
-    });
-    form.addEventListener("submit", (event) => {
-      event.preventDefault();
-      const valid = fields.map(validate).every(Boolean);
-      if (!valid) {
-        status.textContent = currentLocale.text.checkFields;
-        form.querySelector('[aria-invalid="true"]')?.focus();
-        return;
-      }
-      const data = new FormData(form);
-      const projectLabel = form.querySelector("#project option:checked")?.textContent || data.get("project");
-      const subject = formatText(currentLocale.text.inquirySubject, { project: projectLabel });
-      const body = [formatText(currentLocale.text.hello, { name: config.photographerName }), "", data.get("message"), "", `${currentLocale.text.from}: ${data.get("name")}`, `${currentLocale.text.email}: ${data.get("email")}`, `${currentLocale.text.project}: ${projectLabel}`].join("\n");
-      status.textContent = currentLocale.text.openingEmail;
-      window.location.href = `https://ig.me/m/castellanos.foto`;
-    });
-  };
-
   const setupPrivacy = () => {
     const dialog = document.getElementById("privacy-dialog");
     document.querySelector("[data-open-privacy]").addEventListener("click", () => dialog.showModal());
@@ -317,7 +270,6 @@
   setupFilters();
   setupLanguageToggle();
   setupLightbox();
-  setupContactForm();
   setupPrivacy();
   setupRevealAnimations();
 })();

@@ -1,35 +1,23 @@
 # Castellanos Photography
 
-A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. The homepage supports English and Spanish; the reservation pages are in Spanish and use a separate Supabase backend without introducing a frontend framework.
+A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. The homepage supports Spanish and English, with Spanish as the default language.
 
 ## Local preview
 
-From the repository root, start any static file server:
+From the repository root, build the static site and start a local server:
 
 ```bash
 node scripts/build.mjs
 python3 -m http.server 8000 --directory public
 ```
 
-Then open <http://localhost:8000>. The booking page is `/reservar/`; the private admin entry is `/admin/`. Serve `public/`, not the repository root, so private configuration files cannot be served. Node 24+ is sufficient for the build; it needs no npm install or credentials.
+Then open <http://localhost:8000>. Node 24+ is sufficient; there are no npm dependencies or credentials.
 
-## Castellanos Fotografía reservations
+## Languages and contact
 
-The public page requests a temporary hold; only authorized admin confirmation creates a private Google Calendar event. Wedding quotes do not reserve a slot. Setup is intentionally disabled until Supabase, OAuth, Turnstile and the editable privacy/terms notice are configured.
+Use the language button in the main navigation to switch between Spanish and English. The choice is saved in the visitor's browser. The business name is **Castellanos Fotografía** in Spanish and **Castellanos Photography** in English.
 
-- [Implementation plan](docs/booking-implementation-plan.md)
-- [Setup and secrets](docs/BOOKING_SETUP.md)
-- [Daily operations (Spanish)](docs/OPERACION_RESERVAS.md)
-- [Deployment and commercial hosting options](docs/DEPLOYMENT_BOOKING.md)
-- [Validation results and limitations](docs/BOOKING_VALIDATION.md)
-
-Run `npm test` for dependency-free security and Calendar mocks, `npm run test:browser` for installed-Chrome UI checks, and `npm run build` for the static artifact. After `npm install`, run `npm run lint` and `npm run test:db`. Database concurrency against a disposable local Postgres instance is covered by `npm run test:concurrency`; see the setup guide.
-
-## Languages and business information
-
-Use the language button in the main navigation to switch the homepage between English and Spanish. The choice is saved in the visitor's browser. Business names are **Castellanos Photography** in English and **Castellanos Fotografía** in Spanish.
-
-Frequently changed profile details, both language versions of the copy, services, and translated portfolio captions live in [`js/content.js`](js/content.js). Update the photographer name, email, location, Instagram URL, biography, availability, services, and portfolio records there. Layout and interaction code do not need to change.
+The message links open Instagram Direct so visitors can ask about availability and services. Profile and direct-message URLs, both language versions of the copy, services, and translated portfolio captions live in [`js/content.js`](js/content.js).
 
 ## Replace or add photographs
 
@@ -42,7 +30,7 @@ Images below the fold are lazy-loaded automatically. This starter includes AI-ge
 
 ## GitHub Pages deployment
 
-The workflow at `.github/workflows/pages.yml` packages only public files into `public/` and deploys that artifact whenever `main` is updated. It does not publish backend code, docs, tests or `.env` files.
+The workflow at `.github/workflows/pages.yml` packages only public files into `public/` and deploys that artifact whenever `main` is updated. It does not publish development files.
 
 1. Push this repository to GitHub with `main` as the default branch.
 2. Open **Settings → Pages**.
@@ -62,13 +50,8 @@ For a custom domain, add it in **Settings → Pages**, configure the DNS records
 
 For a custom domain, add it under **Deploy → Pages → New domain**, follow GitLab's DNS verification instructions, and update the canonical URLs described above.
 
-## Contact form
-
-The form validates in the browser and opens a pre-filled email in the visitor's mail app. To connect Formspree, Getform, Netlify Forms, or another endpoint later, replace the submit handler in `js/site.js` and add the provider's form attributes.
-
 ## Before publishing
 
 - Replace the placeholder business details and photographs.
-- Confirm the email and social links.
+- Confirm the Instagram profile and direct-message links.
 - Replace canonical and social metadata URLs if the final domain changes.
-- Add a legally reviewed privacy policy if you connect form processing or analytics.
