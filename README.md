@@ -1,6 +1,6 @@
-# Castellanos Fotografía Photography
+# Castellanos Photography
 
-A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. The portfolio remains static. Castellanos Fotografía booking pages add a separate Supabase backend without introducing a frontend framework.
+A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. The homepage supports English and Spanish; the reservation pages are in Spanish and use a separate Supabase backend without introducing a frontend framework.
 
 ## Local preview
 
@@ -25,9 +25,11 @@ The public page requests a temporary hold; only authorized admin confirmation cr
 
 Run `npm test` for dependency-free security and Calendar mocks, `npm run test:browser` for installed-Chrome UI checks, and `npm run build` for the static artifact. After `npm install`, run `npm run lint` and `npm run test:db`. Database concurrency against a disposable local Postgres instance is covered by `npm run test:concurrency`; see the setup guide.
 
-## Edit business information
+## Languages and business information
 
-All frequently changed text and links live at the top of [`js/content.js`](js/content.js). Update the business name, photographer name, email, location, Instagram URL, biography, availability, services, and portfolio records there. Layout and interaction code do not need to change.
+Use the language button in the main navigation to switch the homepage between English and Spanish. The choice is saved in the visitor's browser. Business names are **Castellanos Photography** in English and **Castellanos Fotografía** in Spanish.
+
+Frequently changed profile details, both language versions of the copy, services, and translated portfolio captions live in [`js/content.js`](js/content.js). Update the photographer name, email, location, Instagram URL, biography, availability, services, and portfolio records there. Layout and interaction code do not need to change.
 
 ## Replace or add photographs
 
