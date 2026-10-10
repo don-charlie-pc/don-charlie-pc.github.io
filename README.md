@@ -1,4 +1,4 @@
-# Don Charlie Photography
+# Castellanos Fotografía Photography
 
 A polished, image-first photography portfolio built with plain HTML, CSS, and JavaScript. The portfolio remains static. Castellanos Fotografía booking pages add a separate Supabase backend without introducing a frontend framework.
 

@@ -1,13 +1,13 @@
 /* Edit this file to customize the portfolio. */
 const siteConfig = {
-  businessName: "Don Charlie",
-  photographerName: "Charlie",
-  email: "hello@doncharlie.photo",
-  location: "Mexico City & available worldwide",
-  instagramUrl: "https://instagram.com/",
-  tagline: "Portrait, editorial, and honest celebrations — photographed with warmth.",
-  eyebrow: "Photographer · Mexico City",
-  availability: "Now booking select commissions for 2026.",
+  businessName: "Castellanos Fotografía",
+  photographerName: "Juan Carlos Pérez Castellanos",
+  email: "jcpc.ite@gmail.com",
+  location: "Zona Metropolitana de Guadalajara",
+  instagramUrl: "https://instagram.com/castellanos.foto",
+  tagline: "Portrait, weddings, and honest celebrations — photographed with warmth.",
+  eyebrow: "Photographer · Zapopan, Jalisco",
+  availability: "Now booking select commissions for 2027.",
   bio: "I photograph people as they are: expressive, unguarded, and fully present. My work blends an editorial eye with a documentary instinct, creating images that feel considered without ever feeling staged.",
   philosophy: "Whether it is a quiet portrait or a room full of celebration, I look for gesture, light, and the small in-between moments that make a story personal."
 };
