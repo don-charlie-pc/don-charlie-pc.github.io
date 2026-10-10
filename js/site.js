@@ -30,7 +30,7 @@
     });
     document.querySelectorAll('[data-link="instagram"]').forEach((link) => { link.href = config.instagramUrl; });
     document.querySelectorAll('[data-link="email"]').forEach((link) => {
-      link.href = `mailto:${config.email}`;
+      link.href = `https://ig.me/m/castellanos.foto`;
       if (link.textContent.includes("@")) link.textContent = config.email;
     });
     document.title = currentLocale.pageTitle;
@@ -89,7 +89,7 @@
         const structuredData = JSON.parse(schema.textContent);
         structuredData.name = currentLocale.businessName;
         structuredData.description = currentLocale.metaDescription;
-        structuredData.email = `mailto:${config.email}`;
+        structuredData.email = `https://ig.me/m/castellanos.foto`;
         structuredData.areaServed = currentLocale.areaServed;
         structuredData.sameAs = [config.instagramUrl];
         schema.textContent = JSON.stringify(structuredData);
@@ -284,7 +284,7 @@
       const subject = formatText(currentLocale.text.inquirySubject, { project: projectLabel });
       const body = [formatText(currentLocale.text.hello, { name: config.photographerName }), "", data.get("message"), "", `${currentLocale.text.from}: ${data.get("name")}`, `${currentLocale.text.email}: ${data.get("email")}`, `${currentLocale.text.project}: ${projectLabel}`].join("\n");
       status.textContent = currentLocale.text.openingEmail;
-      window.location.href = `mailto:${config.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      window.location.href = `https://ig.me/m/castellanos.foto`;
     });
   };
 
