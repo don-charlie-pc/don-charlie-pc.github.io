@@ -34,20 +34,19 @@ const siteLocales = {
       openNavigation: "Open navigation",
       closeNavigation: "Close navigation",
       heroAlt: "Woman in a flowing ivory dress walking through a golden field at dusk",
-      heroTitle: "Honest photographs,<br><em>artfully observed.</em>",
+      heroTitle: "Moments you can feel,<br><em>memories that remain.</em>",
       viewPortfolio: "View portfolio",
       messageMe: "Message me",
       scrollToPortfolio: "Scroll to portfolio",
       explore: "Explore",
       selectedWork: "Selected work",
       portfolioEyebrow: "Selected work · 2024–2026",
-      portfolioTitle: "Stories in<br><em>light & gesture.</em>",
+      portfolioTitle: "Moments<br><em>worth keeping.</em>",
       portfolioIntro: "A collection of portraits, celebrations, and quiet observations. Filter the work or select an image to view it full screen.",
       filterCategories: "Filter portfolio by category",
       all: "All",
       portraits: "Portraits",
       weddings: "Weddings",
-      editorial: "Editorial",
       lifestyle: "Lifestyle",
       events: "Events",
       openImage: "Open {title} in image viewer",
@@ -61,7 +60,7 @@ const siteLocales = {
       aboutLead: "Hello, I’m {name} — a photographer drawn to honest connection, beautiful imperfection, and the way light changes a room.",
       basedIn: "Based in",
       availableFor: "Available for",
-      availableServices: "Portraits · Weddings · Editorial",
+      availableServices: "Portraits · Weddings · Events",
       workWithMe: "Work with me",
       servicesEyebrow: "Ways to work together",
       servicesTitle: "Made personal,<br><em>from start to finish.</em>",
@@ -111,20 +110,19 @@ const siteLocales = {
       openNavigation: "Abrir navegación",
       closeNavigation: "Cerrar navegación",
       heroAlt: "Mujer con vestido marfil caminando por un campo dorado al atardecer",
-      heroTitle: "Fotografías reales,<br><em>observadas con arte.</em>",
+      heroTitle: "Instantes que se sienten,<br><em>recuerdos que permanecen.</em>",
       viewPortfolio: "Ver portafolio",
       messageMe: "Escríbeme",
       scrollToPortfolio: "Desplazarse al portafolio",
       explore: "Explorar",
       selectedWork: "Selección de trabajos",
       portfolioEyebrow: "Selección de trabajos · 2024–2026",
-      portfolioTitle: "Historias de<br><em>luz y gesto.</em>",
+      portfolioTitle: "Momentos que<br><em>merecen quedarse.</em>",
       portfolioIntro: "Una colección de retratos, celebraciones y observaciones íntimas. Filtra el trabajo o selecciona una imagen para verla en pantalla completa.",
       filterCategories: "Filtrar portafolio por categoría",
       all: "Todo",
       portraits: "Retratos",
       weddings: "Bodas",
-      editorial: "Editorial",
       lifestyle: "Estilo de vida",
       events: "Eventos",
       openImage: "Abrir {title} en el visor de imágenes",
@@ -138,7 +136,7 @@ const siteLocales = {
       aboutLead: "Hola, soy {name}: fotógrafo atraído por las conexiones sinceras, las imperfecciones hermosas y la forma en que la luz transforma un espacio.",
       basedIn: "Ubicación",
       availableFor: "Disponible para",
-      availableServices: "Retratos · Bodas · Editorial",
+      availableServices: "Retratos · Bodas · Eventos",
       workWithMe: "Trabajemos juntos",
       servicesEyebrow: "Formas de trabajar juntos",
       servicesTitle: "Una experiencia personal,<br><em>de principio a fin.</em>",
@@ -158,28 +156,27 @@ const siteLocales = {
       previousImage: "Ver imagen anterior",
       nextImage: "Ver imagen siguiente",
     },
-    categories: { all: "Todo", portraits: "Retratos", weddings: "Bodas", editorial: "Editorial", lifestyle: "Estilo de vida", events: "Eventos" }
+    categories: { all: "Todo", portraits: "Retratos", weddings: "Bodas", lifestyle: "Estilo de vida", events: "Eventos" }
   }
 };
 
 const portfolioItems = [
-  { image: "assets/images/portfolio/portfolio-01.jpg", layout: "portrait", categoryKey: "portraits", en: { title: "Window Light", category: "Portraits", alt: "Woman with natural curls in warm window light" }, es: { title: "Luz de ventana", category: "Retratos", alt: "Mujer de cabello rizado junto a una ventana con luz cálida" } },
-  { image: "assets/images/portfolio/portfolio-02.jpg", layout: "landscape", categoryKey: "weddings", en: { title: "Just Married", category: "Weddings", alt: "Newly married couple laughing as they leave a historic building" }, es: { title: "Recién casados", category: "Bodas", alt: "Pareja de recién casados riendo al salir de un edificio histórico" } },
-  { image: "assets/images/portfolio/portfolio-03.jpg", layout: "tall", categoryKey: "editorial", en: { title: "Form & Shadow", category: "Editorial", alt: "Fashion portrait in a sculptural black dress against concrete" }, es: { title: "Forma y sombra", category: "Editorial", alt: "Retrato de moda con vestido negro escultórico frente a un muro de concreto" } },
-  { image: "assets/images/portfolio/portfolio-04.jpg", layout: "landscape", categoryKey: "lifestyle", en: { title: "At the Table", category: "Lifestyle", alt: "Two friends preparing a meal together in a warm kitchen" }, es: { title: "A la mesa", category: "Estilo de vida", alt: "Dos amistades preparando juntas una comida en una cocina acogedora" } },
-  { image: "assets/images/portfolio/portfolio-05.jpg", layout: "landscape", categoryKey: "events", en: { title: "A Toast at Dusk", category: "Events", alt: "Guests raising glasses at an outdoor candlelit dinner" }, es: { title: "Brindis al anochecer", category: "Eventos", alt: "Invitados brindando durante una cena al aire libre iluminada con velas" } },
-  { image: "assets/images/portfolio/portfolio-06.jpg", layout: "tall", categoryKey: "portraits", en: { title: "Don Mateo", category: "Portraits", alt: "Older man in a cream linen suit standing in an adobe doorway" }, es: { title: "Don Mateo", category: "Retratos", alt: "Hombre mayor con traje de lino color crema en una puerta de adobe" } },
-  { image: "assets/images/portfolio/portfolio-07.jpg", layout: "portrait", categoryKey: "weddings", en: { title: "The Promise", category: "Weddings", alt: "Close view of newlyweds holding hands in the sunlight" }, es: { title: "La promesa", category: "Bodas", alt: "Detalle de una pareja de recién casados tomados de la mano bajo el sol" } },
-  { image: "assets/images/portfolio/portfolio-08.jpg", layout: "landscape", categoryKey: "editorial", en: { title: "Movement Study", category: "Editorial", alt: "Dancer turning in a flowing rust-colored dress in a bright studio" }, es: { title: "Estudio de movimiento", category: "Editorial", alt: "Bailarina girando con un vestido fluido color óxido en un estudio luminoso" } },
-  { image: "assets/images/portfolio/portfolio-09.jpg", layout: "tall", categoryKey: "lifestyle", en: { title: "Wild Stems", category: "Lifestyle", alt: "Flower artist arranging seasonal stems at a wooden worktable" }, es: { title: "Flores silvestres", category: "Estilo de vida", alt: "Florista acomodando flores de temporada en una mesa de madera" } },
-  { image: "assets/images/portfolio/portfolio-10.jpg", layout: "portrait", categoryKey: "events", en: { title: "After Midnight", category: "Events", alt: "Trumpet player performing among dancing guests at a night celebration" }, es: { title: "Después de medianoche", category: "Eventos", alt: "Trompetista tocando entre invitados que bailan en una celebración nocturna" } }
+  { image: "assets/images/portfolio/portfolio-01.jpg", layout: "portrait", categoryKey: "portraits", en: { title: "Light", category: "Portraits", alt: "photo1" }, es: { title: "Luz", category: "Retratos" } },
+  { image: "assets/images/portfolio/portfolio-02.jpg", layout: "landscape", categoryKey: "weddings", en: { title: "Just Married", category: "Weddings", alt: "photo2" }, es: { title: "Recién casados", category: "Bodas" } },
+  { image: "assets/images/portfolio/portfolio-03.jpg", layout: "tall", categoryKey: "portraits", en: { title: "Form & Shadow", category: "Portraits", alt: "photo3" }, es: { title: "Forma y sombra", category: "Retratos" } },
+  { image: "assets/images/portfolio/portfolio-04.jpg", layout: "landscape", categoryKey: "events", en: { title: "Baby shower", category: "Events", alt: "photo4" }, es: { title: "Baby shower", category: "Eventos" } },
+  { image: "assets/images/portfolio/portfolio-05.jpg", layout: "landscape", categoryKey: "portraits", en: { title: "Retrato", category: "Portraits", alt: "photo5" }, es: { title: "Retrato", category: "Retratos" } },
+  { image: "assets/images/portfolio/portfolio-06.jpg", layout: "tall", categoryKey: "weddings", en: { title: "Pre-wedding session", category: "Weddings", alt: "photo6" }, es: { title: "Sesión Pre-boda", category: "Bodas" } },
+  { image: "assets/images/portfolio/portfolio-07.jpg", layout: "portrait", categoryKey: "weddings", en: { title: "The Promise", category: "Weddings", alt: "photo7" }, es: { title: "La promesa", category: "Bodas" } },
+  { image: "assets/images/portfolio/portfolio-08.jpg", layout: "landscape", categoryKey: "lifestyle", en: { title: "Christmas session", category: "Lifestyle", alt: "photo8" }, es: { title: "Sesión navideña", category: "Estilo de vida" } },
+  { image: "assets/images/portfolio/portfolio-09.jpg", layout: "tall", categoryKey: "lifestyle", en: { title: "Studio session", category: "Lifestyle", alt: "photo9" }, es: { title: "Sesión de estudio", category: "Estilo de vida" } },
+  { image: "assets/images/portfolio/portfolio-10.jpg", layout: "portrait", categoryKey: "lifestyle", en: { title: "Casual session", category: "Lifestyle", alt: "photo10" }, es: { title: "Sesión casual", category: "Estilo de vida" } }
 ];
 
 const services = [
-  { number: "01", en: { name: "Portrait sessions", description: "Unhurried, collaborative portraiture for individuals, couples, artists, and families.", price: "Sessions from $—" }, es: { name: "Sesiones de retrato", description: "Retratos sin prisas y en colaboración para personas, parejas, artistas y familias.", price: "Sesiones desde $—" } },
-  { number: "02", en: { name: "Weddings & events", description: "Artful documentary coverage of intimate gatherings, full wedding days, and everything between.", price: "Collections from $—" }, es: { name: "Bodas y eventos", description: "Cobertura documental y artística de reuniones íntimas, bodas completas y todo lo que sucede entre ellas.", price: "Colecciones desde $—" } },
-  { number: "03", en: { name: "Editorial & commercial", description: "Concept-led imagery for publications, designers, hospitality, and thoughtful brands.", price: "Custom estimates" }, es: { name: "Editorial y comercial", description: "Imágenes guiadas por conceptos para publicaciones, diseño, hospitalidad y marcas con intención.", price: "Cotizaciones personalizadas" } },
-  { number: "04", en: { name: "Lifestyle & branding", description: "Natural visual stories that give independent businesses and creative teams a distinct point of view.", price: "Half-day and full-day rates" }, es: { name: "Estilo de vida y marca", description: "Historias visuales naturales que dan una perspectiva propia a negocios independientes y equipos creativos.", price: "Tarifas por media jornada o jornada completa" } }
+  { number: "01", en: { name: "Portrait sessions", description: "Unhurried, collaborative portraiture for individuals, couples, artists, and families.", price: "Sessions from $—" }, es: { name: "Sesiones de retrato", description: "Retratos sin prisas y en colaboración para personas, parejas, artistas y familias.", price: "Cotizaciones personalizadas" } },
+  { number: "02", en: { name: "Weddings & events", description: "Artful documentary coverage of intimate gatherings, full wedding days, and everything between.", price: "Collections from $—" }, es: { name: "Bodas y eventos", description: "Cobertura documental y artística de reuniones íntimas, bodas completas y todo lo que sucede entre ellas.", price: "Cotizaciones personalizadas" } },
+  { number: "03", en: { name: "Lifestyle & branding", description: "Natural visual stories that give independent businesses and creative teams a distinct point of view.", price: "Half-day and full-day rates" }, es: { name: "Estilo de vida y marca", description: "Historias visuales naturales que dan una perspectiva propia a negocios independientes y equipos creativos.", price: "Tarifas por media jornada o jornada completa" } }
 ];
 
 window.siteConfig = siteConfig;
